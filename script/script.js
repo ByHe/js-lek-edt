@@ -9,19 +9,41 @@ let p = document.getElementById("idP1");
 p.addEventListener("click", pClick)
 
 function sectionClick(e){
-   e.target.style.color = "green";
+   e.currentTarget.style.color = "green";
+   e.target.style.color = "red";
 }
 
 function pClick(e){
    p.innerText = "XXXXXXXXXXXXXX"
 }
 
+
+// Läs in alla li. Blir en array.
 let liArray = document.getElementsByTagName('li');
 
+// Skapa händelselyssnare till alla li
 for(let i = 0; i < liArray.length; i++){
    liArray[i].addEventListener("click", changeColor);
 }
 
+// Funktionen som körs då man klickar på li
 function changeColor(e){
    e.target.style.color = "red";
+}
+
+// Lägg till element i listan (ul/li)
+let letter = 'D'
+
+let btn = document.getElementById('btnAdd');
+btn.addEventListener("click", addToList);
+
+function addToList(e){
+   let ul = document.getElementById('list');
+
+   let li = document.createElement('li');
+   li.innerText = "Nytt";
+   //li.innerText = letter;
+   //letter = String.fromCharCode(letter.charCodeAt(0) + 1);
+
+   ul.appendChild(li);
 }
