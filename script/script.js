@@ -47,3 +47,16 @@ function addToList(e){
 
    ul.appendChild(li);
 }
+
+// JSON-enkel
+let person = {"name": "Lisa", "age": 33};
+
+console.log(person.name);
+console.log(person.age);
+
+// JSON-array
+let data = [{"name": "Lisa", "age": 33}, {"name": "Jan", "age": 12},{"name": "Sten", "age": 18}];
+
+for(let i = 0; i < data.length; i++){
+   console.log(data[i].name + ", " + data[i].age);
+}
