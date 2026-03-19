@@ -41,7 +41,7 @@ function addToList(e){
    let ul = document.getElementById('list');
 
    let li = document.createElement('li');
-   li.innerText = "Nytt";
+   li.innerText = "XX";
    //li.innerText = letter;
    //letter = String.fromCharCode(letter.charCodeAt(0) + 1);
 
@@ -60,3 +60,15 @@ let data = [{"name": "Lisa", "age": 33}, {"name": "Jan", "age": 12},{"name": "St
 for(let i = 0; i < data.length; i++){
    console.log(data[i].name + ", " + data[i].age);
 }
+
+// input värden
+let btnCalc = document.getElementById('btnCalc');
+btnCalc.addEventListener("click", calc);
+
+function calc(){
+   let num = document.getElementById("n1").value;
+   let sqr = Number(num) + Number(num);
+
+   document.getElementById('op1').innerText = sqr
+}
+
