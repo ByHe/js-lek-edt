@@ -72,3 +72,38 @@ function calc(){
    document.getElementById('op1').innerText = sqr
 }
 
+// API med fetch och asynkrona funktioner
+
+async function getCountries(){
+   let url = "https://data.egyweb.se/api/world/getcountries.php";
+   let response = await fetch(url);
+   let countries = await response.json();
+
+   
+   for(let i = 0; i < countries.length; i++){
+      console.log(countries[i].Name + ", " + countries[i].Continent);
+   }
+
+   /*for(country of countries){
+      console.log(country.Name + ", " + country.Continent);
+   }*/
+
+   /*countries.forEach(country => {
+      console.log(country.Name + ", " + country.Continent);
+   });*/
+   
+   renderCountries(countries);
+}
+
+getCountries();
+
+// Renderar alla länder i listan ul-conuntries
+function renderCountries(countries){
+   let ul = document.getElementById("ul-countries"); // parent
+
+   for(country of countries){
+      let li = document.createElement('li'); // Nytt li-element
+      li.innerText = country.Name; // texten i elementet. Ex <li>Sweden</li>
+      ul.appendChild(li); // lägger in elementet i listan <ul>. Lästes in överst i funktionen.
+   }
+}
